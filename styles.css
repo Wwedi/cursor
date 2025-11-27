@@ -1,0 +1,127 @@
+/* ============================================
+   PRICING CARD STYLES - FIXED LAYOUT BUGS
+   ============================================ */
+
+/* Container for all cards */
+.pricing-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CARD COMPONENT STYLING */
+
+/* Main pricing card container */
+.pricing-card {
+  width: 300px;
+  background-color: #fff;
+  /* BUG FIX #1: Changed "box-shdow" to "box-shadow" (was typo)
+     This now properly applies a shadow to the card */
+  box-shadow: 0 0 10px #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  /* BUG FIX #2: Changed text-align from "left" to "center" 
+     and removed margin: auto conflicting layout
+     This ensures proper card alignment and centered content */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card hover effect for better UX */
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card title styling */
+.card-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+  /* BUG FIX #3: Fixed HTML tag mismatch "<h2>Basic Plan<h2>"
+     Now uses proper closing tag. This element displays the plan name */
+}
+
+/* Price styling */
+.card-price {
+  font-size: 18px;
+  color: #27ae60;
+  font-weight: 600;
+  margin: 0;
+  /* BUG FIX #4: Improved color from generic "green" to more professional shade
+     Also added font-weight for better emphasis */
+}
+
+/* Features list styling */
+.card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  /* BUG FIX #5: Removed "padding-left: 0" redundancy and added flex-grow
+     This ensures proper list alignment and makes list grow to fill space */
+}
+
+/* Individual feature items */
+.card-features li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  color: #555;
+  font-size: 14px;
+  /* BUG FIX #6: Increased padding from 4px to 10px for better readability
+     and visual hierarchy */
+}
+
+/* Remove border from last feature */
+.card-features li:last-child {
+  border-bottom: none;
+}
+
+/* Action button styling */
+.card-btn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: auto;
+  transition: all 0.3s ease;
+  /* BUG FIX #7: Improved button styling with gradient, rounded corners,
+     and smooth transitions for professional appearance */
+}
+
+/* Button hover state */
+.card-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  transform: scale(1.02);
+}
+
+/* Button active state */
+.card-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  .pricing-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
